@@ -1,0 +1,58 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+    <div class="content">
+        <!-- content -->
+        <div class="content-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                        <div class="well-box">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="login-box">
+                                        <div class="login-header">
+                                            <h3>Login Your Account</h3>
+                                            <p>Just enter your email address and password to login in your account.</p>
+                                        </div>
+                                        <div class="login-form">
+                                            <form method="POST" action="/client/client_login/" class="needs-validation" novalidate="">
+                                               {% csrf_token %}
+
+                                                <div class="form-group">
+                                                    <label for="email">Email address</label>
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="{{client_cookie_email}}" required="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{client_cookie_password}}" required="">
+                                                </div>
+                                                <button type="submit" class="btn btn-default btn-block btn-lg">Log in</button>
+
+                                            </form><br>
+
+                                            <a href="/client/client_forgot_password/" class="test=small">Forgot Password</a>
+                                           <p class="pull-right">Not registered yet ?  <a href="/client/client_registration/" class="btn-link-primary"> Sign up here</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-1 col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="social-login-box">
+                                        <div class="login-header">
+                                    <p></p>
+                                        </div>
+                                        <div class="social-login">
+                                            <a href="/pgowner/owner_login/"><button type="submit" class="btn btn-block btn-lg">Log in as a owner</button></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
